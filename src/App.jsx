@@ -1,8 +1,16 @@
 import * as React from 'react';
 import Article from './components/article';
+import Navbar from './components/navbar';
 
-export default function Types() {
+export default function App() {
   return (
-    <Article />
+    <>
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <Article />
+      </main>
+    </>
   );
 }
