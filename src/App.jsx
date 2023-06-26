@@ -1,16 +1,22 @@
 import * as React from 'react';
-import Article from './components/article';
-import Navbar from './components/navbar';
+import FootBar from './components/FootBar';
+import MenuAppBar from './components/navbar';
+import BasicTextFields from './components/Form';
+import Content from './components/content';
 
 export default function App() {
   return (
     <>
       <header>
-        <Navbar />
+        <MenuAppBar />
       </header>
       <main>
-        <Article />
+        <BasicTextFields />
+        <Content />
       </main>
+      <footer>
+        <FootBar />
+      </footer>
     </>
   );
 }

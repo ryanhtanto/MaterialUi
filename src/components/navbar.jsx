@@ -1,31 +1,78 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable max-len */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import {
-  AppBar, Button, IconButton, Stack, Toolbar, Typography,
-} from '@mui/material';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
+/* eslint-disable import/no-unresolved */
 
-export default function Navbar() {
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+
+export default function MenuAppBar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <div>
-      <AppBar sx={{ width: '100%', left: 0, right: 0 }} position="relative">
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
         <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" aria-label="logo">
-            <AcUnitIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            MUI APP
+          <Typography variant="h6" fontWeight="bold" component="div" sx={{ flexGrow: 1 }}>
+            Jobify
           </Typography>
-          <Stack direction="row" spacing={2}>
-            <Button color="inherit">Feature</Button>
-            <Button color="inherit">Pricing</Button>
-            <Button color="inherit">About</Button>
-            <Button color="inherit">Login</Button>
-          </Stack>
+          <div>
+            <IconButton
+              size="large"
+              aria-label="notification"
+              aria-controls="notification"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <NotificationsActiveIcon />
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+            </Menu>
+          </div>
         </Toolbar>
       </AppBar>
-    </div>
+    </Box>
   );
 }
