@@ -14,7 +14,7 @@ export default function FootBar() {
   const [value, setValue] = React.useState(0);
 
   return (
-    <Box>
+    <Box sx={{ position: 'fixed', bottom: 0, width: '100%' }}>
       <BottomNavigation
         showLabels
         value={value}

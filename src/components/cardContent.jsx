@@ -10,6 +10,7 @@ import {
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import { Link } from 'react-router-dom';
 
 export default function CardContents() {
   return (
@@ -76,7 +77,7 @@ export default function CardContents() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="outlined" sx={{ width: '100%', marginTop: '10px', textTransform: 'none' }}>Apply Now  </Button>
+        <Button variant="outlined" component={Link} to="/detail" sx={{ width: '100%', marginTop: '10px', textTransform: 'none' }}>Apply Now</Button>
       </CardActions>
     </>
   );
