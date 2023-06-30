@@ -4,7 +4,7 @@
 /* eslint-disable import/no-unresolved */
 
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Box, Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
 export default function BasicTextFields() {
@@ -25,6 +25,12 @@ export default function BasicTextFields() {
         variant="outlined"
         sx={{ width: '100%' }}
       />
+      <Button
+        variant="outlined"
+        sx={{ width: '100%', marginTop: '10px' }}
+      >
+        Search
+      </Button>
     </Box>
   );
 }
